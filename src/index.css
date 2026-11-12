@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+@theme {
+    --color-dark: #0B0F14;
+    --color-sidbar: #0E131A;
+    --color-text-white: #F1F5F9;
+    --color-text-muted: #94A3B8;
+    --color-surface: #141B24;
+    --color-border: #26303D;
+    --color-accent: #10B981;
+    --color-positive: #22C55E;
+    --color-negative: #EF4444
+}
+
+/*@layer components {*/
+/*    .crypto-table .ant-table {*/
+/*        @apply bg-gray-900 text-white;*/
+/*    }*/
+
+/*    .crypto-table .ant-table-tbody > tr > td {*/
+/*        @apply h-[10px];*/
+/*    }*/
+
+/*    .crypto-table .ant-table-thead > tr > th {*/
+/*        @apply bg-gray-900 text-gray-400 border-none;*/
+/*    }*/
+
+/*    .crypto-table .ant-table-tbody > tr > td {*/
+/*        @apply bg-gray-900 text-white border-none;*/
+/*    }*/
+
+/*    .crypto-table .ant-table-tbody > tr:hover > td {*/
+/*        @apply bg-gray-800;*/
+/*    }*/
+/*}*/
