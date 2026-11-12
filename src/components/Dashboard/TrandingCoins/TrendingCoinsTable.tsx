@@ -1,21 +1,20 @@
 import {Card} from 'antd'
-// import { Table, Flex, Space } from 'antd';
 import {Link} from "react-router-dom";
-// import type { TableProps } from 'antd';
 import {useCrypto} from "../../../hooks/useCrypto.ts";
+import LineTrends from "../../LineCahrts/LineTrends.tsx";
 import type {CryptoData} from "../../../types/CryptoData.ts";
-import {LineTrends} from "../../LineCahrts/LineTrends.tsx";
 
 export default function TrendingCoinsTable() {
     const { data } = useCrypto<CryptoData[]>(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=24h,7d,30d,1y&sparkline=true'
     )
-    console.log(data)
+
     return (
         <div>
             <Card style={{
-                width: '720px',
-                height: '320px',
+                width: '1090px',
+                height: '100%',
+                marginBottom: '50px',
                 backgroundColor: 'var(--color-surface)',
                 border: '1px solid var(--color-border)'
             }}>
@@ -39,7 +38,7 @@ export default function TrendingCoinsTable() {
                         {data?.slice(0, 5).map((item) => (
                             <div
                                 key={item.id}
-                                className="grid grid-cols-[2.2fr_1fr_1fr_1fr] items-center px-3 h-[40px]"
+                                className="grid grid-cols-[2.2fr_1fr_1fr_1fr] items-center px-3 h-[50px]"
                             >
                                 {/* Asset */}
                                 <div className="flex items-center gap-5 min-w-0">
@@ -58,7 +57,6 @@ export default function TrendingCoinsTable() {
                                         </p>
                                     </div>
                                 </div>
-
                                 {/* Price */}
                                 <div>
                                     <p className="text-xs text-text-white font-medium">
@@ -83,16 +81,13 @@ export default function TrendingCoinsTable() {
                                 </div>
 
                                 {/* Trend */}
-                                <div className="w-[55px] h-[15px]">
-                                    <LineTrends />
+                                <div className='w-full h-[50px]'>
+                                    <LineTrends data={item.sparkline_in_7d}/>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
-
-
-
             </Card>
         </div>
     )

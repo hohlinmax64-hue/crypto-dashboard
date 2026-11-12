@@ -4,7 +4,7 @@ import type {CryptoData} from "../../../types/CryptoData.ts";
 
 export default function CoinTable() {
     const {isLoading, error, data} = useCrypto<CryptoData[]>(
-        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1'
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&price_change_percentage=24h,7d,30d,1y'
     )
 
     function minSort(arr: any) {
@@ -29,7 +29,7 @@ export default function CoinTable() {
                     <p className='text-xs text-text-muted mb-3'>TOP GAINERS</p>
                 </div>
                 <div className='flex flex-col gap-5 mb-4'>
-                    {maxSort(data)?.splice(0, 3).map((item) => (
+                    {maxSort(data)?.slice(0, 3).map((item) => (
                         <CoinTableItem key={item.id} crypto={item}/>
                     ))}
                 </div>
@@ -37,7 +37,7 @@ export default function CoinTable() {
                     <div className='w-full h-[1px] bg-border mb-4'></div>
                     <p className='text-xs text-text-muted mb-3'>TOP LOSERS</p>
                     <div className='flex flex-col gap-3'>
-                        {minSort(data)?.splice(0, 2).map((item) => (
+                        {minSort(data)?.slice(0, 2).map((item) => (
                             <CoinTableItem key={item.id} crypto={item}/>
                         ))}
                     </div>

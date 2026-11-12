@@ -12,7 +12,7 @@ export default function AppRoutes(){
     return (
         <Routes>
             <Route path='/' element={ <MainLayout />} >
-                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/" element={<Dashboard />} />
                 <Route path="/coindetails" element={<CoinDetails />} />
                 <Route path="/markets" element={<Markets />} />
                 <Route path="/portfolio" element={<Portfolio />} />

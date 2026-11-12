@@ -1,18 +1,28 @@
 import type { TooltipContentProps } from 'recharts';
 
-export default function CustomTooltip({active, payload, label}: TooltipContentProps) {
+export default function CustomTooltip({active, payload}: TooltipContentProps) {
     if (!active || !payload || !payload.length) {
         return null;
     }
-    return (
-        <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
-            <p className="text-medium text-accent text-lg">
-                {label}
-            </p>
 
-            <p className="text-sm text-blue-400">
-                Product 1:
-                <span className="ml-2">${payload[0].value}</span>
+    const price = Number(payload[0].value);
+    return (
+        <div className="rounded-lg border border-border bg-surface/95 px-3 py-2 shadow-xl backdrop-blur-sm">
+            <div className="mb-1 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                <span className="text-xs text-text-muted">
+                    Price
+                </span>
+            </div>
+
+            <p className="text-sm font-semibold tabular-nums text-text-white">
+                Price
+                <span className="ml-2">${
+                    price.toLocaleString("en-US", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                    })
+                }</span>
             </p>
         </div>
     );
