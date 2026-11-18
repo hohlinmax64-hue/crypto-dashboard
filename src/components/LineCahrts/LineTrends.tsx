@@ -13,7 +13,6 @@ export default function LineTrends({data}: any) {
     const objPriceArr = priceCrypto.map((item) => ({
         price: item
     }))
-    console.log(objPriceArr);
     return (
         <>
             <ResponsiveContainer width="100%" height="100%">

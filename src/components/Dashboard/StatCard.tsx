@@ -1,7 +1,11 @@
 import { Card, Space } from 'antd';
+import {useCrypto} from "../../hooks/useCrypto.ts";
+import type {GlobalMarketData} from "../../types/GlobalMarketData.ts";
 
 export default function StatCard(){
-
+    const {data} = useCrypto<GlobalMarketData>('https://api.coingecko.com/api/v3/global')
+    console.log("Data type", data)
+    // @ts-ignore
     return (
         <Space size={20} style={{
             display: 'flex',
@@ -20,9 +24,19 @@ export default function StatCard(){
 
                 <div className=''>
                     <p className='text-text-muted font-medium text-sm mb-2'>Total Market Capitalization</p>
-                    <h2 className='text-xl font-semibold mb-2'>$2.48T</h2>
+                    <h2 className='text-xl font-semibold mb-2'>${data?.data.total_market_cap.usd.toLocaleString('en')}</h2>
                     <div className='flex gap-10'>
-                        <p className='font-semibold text-xs text-positive'>+2.36%</p>
+                        <p className='font-semibold text-xs'
+                           style={{color: data?.data.market_cap_change_percentage_24h_usd === undefined
+                                   ? 'var(--color-text-muted)'
+                                   : data?.data.market_cap_change_percentage_24h_usd >= 0
+                                       ? 'var(--color-positive)'
+                                       : 'var(--color-negative)',
+                        }}
+                        >{data?.data.market_cap_change_percentage_24h_usd !== undefined
+                            ? data?.data.market_cap_change_percentage_24h_usd.toFixed(2)
+                            : 'Not Info'
+                        }%</p>
                         <p className='font-normal text-text-muted text-xs'>vs. last 24 hours</p>
                     </div>
                 </div>
@@ -39,9 +53,16 @@ export default function StatCard(){
             }}>
                 <div>
                     <p className='text-text-muted font-medium text-sm mb-2'>24h Trading Volume</p>
-                    <h2 className='text-xl font-semibold mb-2'>$84.2B</h2>
+                    <h2 className='text-xl font-semibold mb-2'>${data?.data.total_volume.usd.toLocaleString('en')}</h2>
                     <div className='flex gap-10'>
-                        <p className='font-semibold text-xs text-positive'>+8.14%</p>
+                        <p className='font-semibold text-xs'
+                           style={{color: data?.data.volume_change_percentage_24h_usd === undefined
+                                   ? 'var(--color-text-muted)'
+                                   : data?.data.volume_change_percentage_24h_usd >= 0
+                                       ? 'var(--color-positive)'
+                                       : 'var(--color-negative)',
+                           }}
+                        >{data?.data.volume_change_percentage_24h_usd.toFixed(2)}%</p>
                         <p className='font-normal text-text-muted text-xs'>vs. last 24 hours</p>
                     </div>
                 </div>
@@ -57,9 +78,9 @@ export default function StatCard(){
             }}>
                 <div className=''>
                     <p className='text-text-muted font-medium text-sm mb-2'>BTC Dominance</p>
-                    <h2 className='text-xl font-semibold mb-2'>54.2%</h2>
+                    <h2 className='text-xl font-semibold mb-2'>{data?.data.market_cap_percentage.btc.toFixed(1)}%</h2>
                     <div className='flex gap-10'>
-                        <p className='font-semibold text-xs text-negative'>-0.31%</p>
+                        <p className='font-semibold text-xs text-negative'>{data?.data.market_cap_change_percentage_24h_usd.toFixed(2)}%</p>
                         <p className='font-normal text-text-muted text-xs'>vs. last 24 hours</p>
                     </div>
                 </div>

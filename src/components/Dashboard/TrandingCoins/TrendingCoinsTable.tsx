@@ -38,7 +38,7 @@ export default function TrendingCoinsTable() {
                         {data?.slice(0, 5).map((item) => (
                             <div
                                 key={item.id}
-                                className="grid grid-cols-[2.2fr_1fr_1fr_1fr] items-center px-3 h-[50px]"
+                                className="grid grid-cols-[2.2fr_1fr_1fr_1fr] items-center px-3 gap-y-3.5 h-[50px]"
                             >
                                 {/* Asset */}
                                 <div className="flex items-center gap-5 min-w-0">

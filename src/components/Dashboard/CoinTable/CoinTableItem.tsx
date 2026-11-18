@@ -1,12 +1,19 @@
 import type {CryptoData} from "../../../types/CryptoData.ts";
+import {useContext} from "react";
+import {Conetxt} from "../../../utiliti/Context.ts";
 
 interface CoinTableItem {
     crypto: CryptoData;
 }
 
 export default function CoinTableItem({crypto}: CoinTableItem) {
+    const context = useContext(Conetxt);
+    if(!context){
+        throw new Error("Context is not provided");
+    }
+    const {infoPortfolioChart} = context;
     return (
-        <div className='w-[238px] flex items-center justify-between'>
+        <div onClick={() => infoPortfolioChart(crypto.id)} className='w-[238px] flex items-center justify-between'>
             <div className='flex items-center gap-2.5'>
                 <img src={crypto.image} alt={crypto.name} className="w-[27px] h-[27px] object-contain" />
                 <p className='text-xs font-bold'>{crypto.name}</p>
