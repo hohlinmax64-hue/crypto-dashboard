@@ -5,7 +5,6 @@ import {Link} from "react-router-dom";
 export default function MenuApp() {
     return (
             <Menu
-                className="h-screen"
                 style={{backgroundColor: 'var(--color-sidbar)'}}
                 theme="dark"
                 mode="inline"

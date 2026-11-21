@@ -9,31 +9,84 @@ body {
     --color-sidbar: #0E131A;
     --color-text-white: #F1F5F9;
     --color-text-muted: #94A3B8;
-    --color-surface: #141B24;
+    --color-surface: #1B2430;
+    --color-hover: #141B24;
     --color-border: #26303D;
     --color-accent: #10B981;
     --color-positive: #22C55E;
     --color-negative: #EF4444
 }
 
-/*@layer components {*/
-/*    .crypto-table .ant-table {*/
-/*        @apply bg-gray-900 text-white;*/
-/*    }*/
 
-/*    .crypto-table .ant-table-tbody > tr > td {*/
-/*        @apply h-[10px];*/
-/*    }*/
+.crypto-table .ant-table {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: #ffffff;
+}
 
-/*    .crypto-table .ant-table-thead > tr > th {*/
-/*        @apply bg-gray-900 text-gray-400 border-none;*/
-/*    }*/
+.crypto-table .ant-table-thead > tr > th {
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    border-bottom: 1px solid var(--color-border);
+}
 
-/*    .crypto-table .ant-table-tbody > tr > td {*/
-/*        @apply bg-gray-900 text-white border-none;*/
-/*    }*/
+.crypto-table .ant-table-tbody > tr > td {
+    background: var(--color-surface);
+    color: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+}
 
-/*    .crypto-table .ant-table-tbody > tr:hover > td {*/
-/*        @apply bg-gray-800;*/
-/*    }*/
-/*}*/
+.crypto-table .ant-table-tbody > tr:hover > td {
+    background: #1f2937 !important;
+}
+
+.crypto-table .ant-table-thead > tr > th::before {
+    display: none !important;
+}
+
+
+/* Pagination container */
+.crypto-table .ant-pagination {
+    margin-top: 24px;
+    padding: 48px 0;
+}
+
+/* Page numbers */
+.crypto-table .ant-pagination-item {
+    background: #1f2937;
+    border: none;
+    border-radius: 6px;
+}
+
+.crypto-table .ant-pagination-item a {
+    color: #9ca3af;
+}
+
+/* Active page */
+.crypto-table .ant-pagination-item-active {
+    background: #2563eb;
+    border: none;
+}
+
+.crypto-table .ant-pagination-item-active a {
+    color: #ffffff;
+}
+
+/* Previous and next */
+.crypto-table .ant-pagination-prev .ant-pagination-item-link,
+.crypto-table .ant-pagination-next .ant-pagination-item-link {
+    background: #1f2937;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+}
+
+/* Hover */
+.crypto-table .ant-pagination-item:hover {
+    background: #374151;
+}
+
+.crypto-table .ant-pagination-item:hover a {
+    color: #ffffff;
+}

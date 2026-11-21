@@ -2,7 +2,7 @@ import AppRoutes from "./components/AppRoutes/AppRoutes.tsx";
 import {useCrypto} from "./hooks/useCrypto.ts";
 import {useState} from "react";
 import type {CryptoData} from "./types/CryptoData.ts";
-import {Conetxt} from './utiliti/Context.ts'
+import {Conetxt} from './utility/Context.ts'
 
 function App(){
     const [cryptoData, setCryptoData] = useState<CryptoData | undefined>(undefined);

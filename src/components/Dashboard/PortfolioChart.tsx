@@ -1,8 +1,8 @@
 import {Card, Spin} from 'antd'
 import LineBtc from "../LineCahrts/LineBtc.tsx";
 import {useContext, useState} from "react";
-import {Conetxt} from "../../utiliti/Context.ts";
-import {useChartPeriodFilter} from "../../utiliti/useChartPeriodFilter.ts";
+import {Conetxt} from "../../utility/Context.ts";
+import {useChartPeriodFilter} from "../../hooks/useChartPeriodFilter.ts";
 import { LoadingOutlined } from "@ant-design/icons";
 import {AlertCircle} from "lucide-react";
 

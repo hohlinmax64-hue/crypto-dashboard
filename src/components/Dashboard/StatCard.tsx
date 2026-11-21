@@ -24,7 +24,14 @@ export default function StatCard(){
 
                 <div className=''>
                     <p className='text-text-muted font-medium text-sm mb-2'>Total Market Capitalization</p>
-                    <h2 className='text-xl font-semibold mb-2'>${data?.data.total_market_cap.usd.toLocaleString('en')}</h2>
+                    <h2 className='text-xl font-semibold mb-2'>$
+                        {data?.data.total_market_cap.usd.toLocaleString('en') === undefined
+                            ? 'Not info'
+                                : data?.data.total_market_cap.usd.toLocaleString('en').length >= 13
+                                ?`${data?.data.total_market_cap.usd.toLocaleString('en').slice(0, 4)}T`
+                                    :`${data?.data.total_market_cap.usd.toLocaleString('en').slice(0, 4)}B`
+                        }
+                    </h2>
                     <div className='flex gap-10'>
                         <p className='font-semibold text-xs'
                            style={{color: data?.data.market_cap_change_percentage_24h_usd === undefined
@@ -33,10 +40,12 @@ export default function StatCard(){
                                        ? 'var(--color-positive)'
                                        : 'var(--color-negative)',
                         }}
-                        >{data?.data.market_cap_change_percentage_24h_usd !== undefined
+                        >
+                            {data?.data.market_cap_change_percentage_24h_usd !== undefined
                             ? data?.data.market_cap_change_percentage_24h_usd.toFixed(2)
                             : 'Not Info'
-                        }%</p>
+                        }%
+                        </p>
                         <p className='font-normal text-text-muted text-xs'>vs. last 24 hours</p>
                     </div>
                 </div>
@@ -53,7 +62,14 @@ export default function StatCard(){
             }}>
                 <div>
                     <p className='text-text-muted font-medium text-sm mb-2'>24h Trading Volume</p>
-                    <h2 className='text-xl font-semibold mb-2'>${data?.data.total_volume.usd.toLocaleString('en')}</h2>
+                    <h2 className='text-xl font-semibold mb-2'>
+                        ${data?.data.total_volume.usd.toLocaleString('en') === undefined
+                            ? 'Not info'
+                            : data?.data.total_volume.usd.toLocaleString('en').length >= 10
+                                ?`${data?.data.total_volume.usd.toLocaleString('en').slice(0, 4)}T`
+                                :`${data?.data.total_volume.usd.toLocaleString('en').slice(0, 4)}B`
+                        }
+                    </h2>
                     <div className='flex gap-10'>
                         <p className='font-semibold text-xs'
                            style={{color: data?.data.volume_change_percentage_24h_usd === undefined

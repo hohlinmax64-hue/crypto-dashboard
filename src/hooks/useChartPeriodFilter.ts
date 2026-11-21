@@ -1,4 +1,4 @@
-import {useCrypto} from "../hooks/useCrypto.ts";
+import {useCrypto} from "./useCrypto.ts";
 import type {MarketChartResponse} from "../types/MarketChartResponse.ts";
 
 

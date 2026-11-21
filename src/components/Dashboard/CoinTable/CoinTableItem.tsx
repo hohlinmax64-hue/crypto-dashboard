@@ -1,6 +1,6 @@
 import type {CryptoData} from "../../../types/CryptoData.ts";
 import {useContext} from "react";
-import {Conetxt} from "../../../utiliti/Context.ts";
+import {Conetxt} from "../../../utility/Context.ts";
 
 interface CoinTableItem {
     crypto: CryptoData;
