@@ -19,6 +19,6 @@ export function useChartPeriodFilter({id, day} : ChartPeriodFilterProps) {
         time: item[0],
         price: item[1],
     })) ?? []
-    console.log('data type useChartPeriodFilter', typeof data)
+
     return { arrHistoryPrices, isLoading, isError };
 }

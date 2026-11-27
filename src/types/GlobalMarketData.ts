@@ -1,6 +1,6 @@
 
 
-export interface GlobalMarketData {
+export interface GlobalMarket {
     market_cap_change_percentage_24h_usd: number;
     market_cap_percentage: {
         btc: number;
@@ -15,5 +15,5 @@ export interface GlobalMarketData {
 }
 
 export interface GlobalMarketData {
-    data: GlobalMarketData;
+    data: GlobalMarket;
 }

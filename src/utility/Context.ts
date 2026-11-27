@@ -6,4 +6,10 @@ export interface ContextCryptoProps {
     infoPortfolioChart: (id: string) => void;
 }
 
-export const Conetxt = createContext<ContextCryptoProps | null>(null)
+interface ContextChoisCoin {
+    cryptoChois: CryptoData | undefined;
+    choisCoinById: (id: string) => void;
+}
+
+export const Conetxt  = createContext<ContextCryptoProps | null>(null)
+export const ChoisContext = createContext<ContextChoisCoin | null>(null)

@@ -20,7 +20,10 @@ body {
 
 .crypto-table .ant-table {
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    border-left: none !important;
+    border-right: none !important;
     border-radius: 12px;
     color: #ffffff;
 }
@@ -89,4 +92,70 @@ body {
 
 .crypto-table .ant-pagination-item:hover a {
     color: #ffffff;
+}
+
+
+
+.asset-radio-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.asset-radio.ant-radio-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-surface);
+}
+
+.asset-radio .ant-radio {
+    order: 2;
+    margin-left: 16px;
+}
+
+
+.asset-radio .ant-radio + span {
+    order: 1;
+    flex: 1;
+    min-width: 0;
+    padding-inline-end: 0;
+}
+
+/* Выбранная карточка */
+.asset-radio:has(.ant-radio-checked) {
+    border-color: #00d69a;
+    background: rgba(0, 214, 154, 0.08);
+    transition: 300ms;
+}
+
+
+.table-transactions .ant-table {
+    background: var(--color-surface) !important;
+
+}
+
+.table-transactions .ant-table-thead > tr > th {
+    background: var(--color-surface) !important;
+    color: var(--color-text-muted) !important;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.table-transactions .ant-table-thead > tr > th::before {
+    display: none !important;
+}
+
+.table-transactions .ant-table-tbody > tr > td {
+    background: var(--color-surface);
+    color: white;
+    border-bottom: 1px solid var(--color-border);
+    height: auto;
+}
+
+.table-transactions .ant-table-tbody > tr:hover > td {
+    background: #1f2937 !important;
 }

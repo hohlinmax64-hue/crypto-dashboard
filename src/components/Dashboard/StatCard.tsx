@@ -4,8 +4,7 @@ import type {GlobalMarketData} from "../../types/GlobalMarketData.ts";
 
 export default function StatCard(){
     const {data} = useCrypto<GlobalMarketData>('https://api.coingecko.com/api/v3/global')
-    console.log("Data type", data)
-    // @ts-ignore
+
     return (
         <Space size={20} style={{
             display: 'flex',
